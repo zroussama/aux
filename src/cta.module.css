@@ -1,0 +1,49 @@
+
+  
+  .cta-button:hover {
+    background-color: red; /* Darker shade of primary color */
+    color: #e6e6e6;
+    text-decoration: none;
+  }
+  
+  .cta-link {
+    color: #007bff; /* Primary color */
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .cta-link:hover {
+    color: #0056b3; /* Darker shade of primary color */
+    text-decoration: none;
+  }
+  
+  .price-card  {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: auto; /* Ensures the button stays at the bottom */
+  }
+
+  .price-card .cta-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .learn-more {
+    font-size: 0.9em;
+    margin-top: 10px;
+  }
+  
+  .learn-more a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .learn-more a:hover {
+    text-decoration: underline;
+  }
