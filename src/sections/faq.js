@@ -2,6 +2,9 @@
 import { jsx, Container, Box } from 'theme-ui';
 import SectionHeader from 'components/section-header';
 import Accordion from 'components/accordion/accordion';
+import Button from 'components/button';
+import { useRef, useEffect } from 'react';
+
 const faqs = [
   {
     title: 'How to contact with riders emergency ?',
@@ -46,7 +49,16 @@ const faqs = [
     ),
   },
 ];
+
 export default function Faq() {
+  const contactButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (contactButtonRef.current) {
+      contactButtonRef.current.focus();
+    }
+  }, []);
+
   return (
     <section sx={{ variant: 'section.faq' }}>
       <Container>
@@ -64,6 +76,9 @@ export default function Faq() {
           }}
         >
           <Accordion items={faqs} />
+          <Box sx={{ mt: 6, textAlign: 'center' }}>
+            <Button ref={contactButtonRef}>Contact Support</Button>
+          </Box>
         </Box>
       </Container>
     </section>
