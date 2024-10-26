@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container, Flex, Button } from "theme-ui";
+import { jsx, Container, Flex } from "theme-ui";
 import { keyframes } from "@emotion/core";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -10,28 +10,22 @@ import LogoWhite from "assets/stagic.png";
 import { DrawerProvider } from "../../contexts/drawer/drawer.provider";
 import MobileDrawer from "./mobile-drawer";
 import menuItems from "./header.data";
-import ContactModal from "../cta/contactModal"; // Import ContactModal from the correct path
-
+import ContactModal from "../cta/contactModal";
+import Button from 'components/button';
 
 export default function Header({ className }) {
   const router = useRouter();
   const routeName = router.route;
 
-  // Dialog class
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleContactUsClick = () => {
-    setIsModalOpen(true);
+    router.push('/contact');
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-
-  // const handleContactUsClick = () => {
-  //   router.push('/contact-us'); // Redirects to the Contact Us page
-  // };
-
 
   return (
     <DrawerProvider>
@@ -53,13 +47,12 @@ export default function Header({ className }) {
               {label}
               </Link>
             ))}
-
           </Flex>
 
           <Button
             className="donate__btn"
             variant="secondary"
-            aria-label="Get Started"
+            aria-label="Contact Us"
             onClick={handleContactUsClick}
           >
             Contact Us

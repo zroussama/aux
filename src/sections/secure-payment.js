@@ -3,6 +3,8 @@ import { jsx } from 'theme-ui';
 import { Container, Box } from 'theme-ui';
 import TextFeature from 'components/text-feature';
 import Image from 'components/image';
+import Button from 'components/button';
+import { useRef, useEffect } from 'react';
 
 import PaymentThumb from 'assets/paymentThumb.png';
 import PaymentPattern from 'assets/payment-pattern.png';
@@ -17,6 +19,14 @@ const data = {
 };
 
 export default function SecurePayment() {
+  const learnMoreButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (learnMoreButtonRef.current) {
+      learnMoreButtonRef.current.focus();
+    }
+  }, []);
+
   return (
     <section sx={{ variant: 'section.securePayment' }}>
       <Box sx={styles.bgOverlay} />
@@ -32,6 +42,11 @@ export default function SecurePayment() {
             btnName={data.btnName}
             btnURL={data.btnURL}
           />
+          <Box sx={{ mt: 4 }}>
+            <Button ref={learnMoreButtonRef} variant="textButton">
+              Learn More About Security
+            </Button>
+          </Box>
         </Box>
       </Container>
     </section>
